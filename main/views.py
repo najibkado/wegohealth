@@ -31,7 +31,7 @@ def drugs(request):
             )
             new_d.save()
         
-        return HttpResponseRedirect(reverse("reg"))
+        return HttpResponseRedirect(reverse("index"))
 
 def reg(request):
     shops = models.Shop.objects.all()
