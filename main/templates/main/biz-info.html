@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Client Information</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/logo.svg' %}">
+    <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
+</head>
+<body class="h-full">
+  
+
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-50">
+  <body class="h-full">
+  ```
+-->
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="">
+      <div>
+        <img class="mx-auto h-12 w-auto" src="{% static '/logo.svg' %}" alt="Wego Health">
+        <h2 class="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">Client {{id}} Questianaire Information</h2>
+        <p class="mt-2 mb-2 text-center text-sm text-gray-600">
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> All fields are required </a>
+        </p>
+      </div>
+      <form action="{% url 'questianaire' id %}" method="POST">
+        {% csrf_token %}
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-xl2 font-medium text-gray-900">Are you the business owner?</label>
+                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">Expected time of delivery when you place order for drugs on our app?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1hr - 5hrs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">5hr - 10hrs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 10hrs - 24hrs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">24hrs - Days </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much would you be able to pay for delivery after placing order for drugs on our app?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 500 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 1,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1,500 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 2,000 Naira </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How often do you visit the market in a month to buy drugs for your business?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5  </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 10</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 11 - 20 </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 20 - 30 </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What are your major challenges in this business?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Order for drugs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Logistics</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Debtors </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Finance </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Customers </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much credit worth of drugs do you give out to your customers in a monthly?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 100 Naira - 20,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 20,000 Naira - 50,000 Naira</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 50,000 Naira - 100,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 100,000 Naira - 1,000,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1,000,000 Naira - Above</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-xl2 font-medium text-gray-900">Do debtors slow down your business turn over? </label>
+                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What Services are you interested in from our app?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Order for drugs online </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Logistics</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Finance and Loans </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-xl2 font-medium text-gray-900">What is your qualification? </label>
+                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Pharmacist</option>
+                  <option>Pharmacy technician</option>
+                  <option>Pharmacy technologist</option>
+                  <option>Nurse</option>
+                  <option>CHEW</option>
+                  <option>CHO</option>
+                  <option>Laboratory technician </option>
+                  <option>Environmental hygiene</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How many employees do you have currently?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5 </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 15 </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> More than 15 </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What is your turnover in the last 12 months?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Less than N100 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> N100 Million to N500 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> N500 Million to N1 Billion </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Over N1 Billion </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What are your typical monthly sales?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Below 500,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - 1 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1 Million to 1.7 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1.7 Million to 3 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Above 3 Million </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-xl2 font-medium text-gray-900"> Is your company registered with the Corporate Affairs Commission? </label>
+                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+              <br>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-xl2 font-medium text-gray-900"> Is your business registered with the Pharmacists Council of Nigeria? </label>
+                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+
+
+            </div>
+
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Next</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  
+    <!-- <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+              <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+            </div>
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            
+          </div>
+        </div>
+    </div> -->
+      
+</body>
+</html>
