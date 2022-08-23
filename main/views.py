@@ -8,7 +8,20 @@ from django.urls import reverse
 def index(request):
     return render(request, "main/index.html")
 
+def login(request):
+    if request.method == "GET":
+        return render(request, "main/login.html")
+    
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        return HttpResponseRedirect(reverse("drugs"))
+
 def drugs(request):
+
+    if request.method == "GET":
+        return render(request, "main/selection.html")
 
     if request.method == "POST":
         name = request.POST["name"]
@@ -31,7 +44,7 @@ def drugs(request):
             )
             new_d.save()
         
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("drugs"))
 
 def reg(request):
     shops = models.Shop.objects.all()
