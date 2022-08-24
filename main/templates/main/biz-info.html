@@ -36,10 +36,10 @@
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-xl2 font-medium text-gray-900">Are you the business owner?</label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Yes</option>
-                  <option>No</option>
+                <label for="busines" class="block text-xl2 font-medium text-gray-900">Are you the business owner?</label>
+                <select id="busines" name="busines" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
 
@@ -48,20 +48,20 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">Expected time of delivery when you place order for drugs on our app?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1hr - 5hrs </label>
+                      <input id="duration1" value="1hrs - 6hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration1"  class="ml-3 block text-sm font-medium text-gray-700"> 1hrs - 6hrs </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">5hr - 10hrs </label>
+                      <input id="duration2" value="6hrs - 12hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration2" class="ml-3 block text-sm font-medium text-gray-700">6hrs - 12hrs </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 10hrs - 24hrs </label>
+                      <input id="duration3" value="1 Day - 2 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Day - 2 Days </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">24hrs - Days </label>
+                      <input id="duration4" value="3 Days - 7 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration4" class="ml-3 block text-sm font-medium text-gray-700">3 Days - 7 Days </label>
                     </div>
                   </div>
                 </fieldset>
@@ -72,20 +72,24 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">How much would you be able to pay for delivery after placing order for drugs on our app?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 500 Naira </label>
+                      <input id="delivery1" value="500 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery1" class="ml-3 block text-sm font-medium text-gray-700"> 500 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 1,000 Naira </label>
+                      <input id="delivery2" value="1,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery2" class="ml-3 block text-sm font-medium text-gray-700"> 1,000 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1,500 Naira </label>
+                      <input id="delivery3" value="1,500 Naira " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery3" class="ml-3 block text-sm font-medium text-gray-700"> 1,500 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 2,000 Naira </label>
+                      <input id="delivery4" value="2,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery4" class="ml-3 block text-sm font-medium text-gray-700"> 2,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="delivery5" value="5,000 Naira and Above " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery5" class="ml-3 block text-sm font-medium text-gray-700"> 5,000 Naira and Above </label>
                     </div>
                   </div>
                 </fieldset>
@@ -96,20 +100,20 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">How often do you visit the market in a month to buy drugs for your business?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5  </label>
+                      <input id="commute1" value="1 - 5 " name="commute" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="commute1" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5  </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 10</label>
+                      <input id="commute2" value="6 - 10" name="commute" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="commute2" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 10</label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 11 - 20 </label>
+                      <input id="commute3" value="11 - 20" name="commute" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="commute3" class="ml-3 block text-sm font-medium text-gray-700"> 11 - 20 </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 20 - 30 </label>
+                      <input id="commute4" value=" 20 - 30" name="commute" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="commute4" class="ml-3 block text-sm font-medium text-gray-700"> 20 - 30 </label>
                     </div>
                   </div>
                 </fieldset>
@@ -119,25 +123,45 @@
                 <fieldset>
                   <label for="country" class="block text-xl2 font-medium text-gray-900">What are your major challenges in this business?</label>
                   <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Order for drugs </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="comments" name="challenges" value="Order for drugs" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="comments" class="font-medium text-gray-700">Order for drugs</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Logistics</label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="candidates" name="challenges" value="Logistics" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="candidates" class="font-medium text-gray-700">Logistics</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Debtors </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="offers" name="challenges" value="Finance" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="offers" class="font-medium text-gray-700">Finance</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Finance </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="finance" name="challenges" value="Debtors" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="finance" class="font-medium text-gray-700">Debtors</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Customers </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="customer" name="challenges" value="Customers" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="customer" class="font-medium text-gray-700">Customers</label>
+                      </div>
                     </div>
                   </div>
                 </fieldset>
@@ -148,34 +172,34 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">How much credit worth of drugs do you give out to your customers in a monthly?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 100 Naira - 20,000 Naira </label>
+                      <input id="credit1" value="100 Naira - 20,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit1" class="ml-3 block text-sm font-medium text-gray-700"> 100 Naira - 20,000 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 20,000 Naira - 50,000 Naira</label>
+                      <input id="credit2" value="20,000 Naira - 50,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit2" class="ml-3 block text-sm font-medium text-gray-700"> 20,000 Naira - 50,000 Naira</label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 50,000 Naira - 100,000 Naira </label>
+                      <input id="credit3" value="50,000 Naira - 100,000 Naira " name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit3" class="ml-3 block text-sm font-medium text-gray-700"> 50,000 Naira - 100,000 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 100,000 Naira - 1,000,000 Naira </label>
+                      <input id="credit4" value="100,000 Naira - 1,000,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit4" class="ml-3 block text-sm font-medium text-gray-700"> 100,000 Naira - 1,000,000 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1,000,000 Naira - Above</label>
+                      <input id="credit5" value="1,000,000 Naira - Above" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit5" class="ml-3 block text-sm font-medium text-gray-700"> 1,000,000 Naira - Above</label>
                     </div>
                   </div>
                 </fieldset>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-xl2 font-medium text-gray-900">Do debtors slow down your business turn over? </label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Yes</option>
-                  <option>No</option>
+                <label for="debtors" class="block text-xl2 font-medium text-gray-900">Do debtors slow down your business turn over? </label>
+                <select id="debtors" name="debtors" autocomplete="debtors" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
 
@@ -183,34 +207,55 @@
                 <fieldset>
                   <label for="country" class="block text-xl2 font-medium text-gray-900">What Services are you interested in from our app?</label>
                   <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Order for drugs online </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="service1" value="Order for drugs online" name="service" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="service1" class="font-medium text-gray-700">Order for drugs online</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Logistics</label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="service2" value="Logistics" name="service" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="service2" class="font-medium text-gray-700">Logistics</label>
+                      </div>
                     </div>
-                    <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Finance and Loans </label>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="service3" value="Finance and Loans" name="service" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="service3" class="font-medium text-gray-700">Finance and Loans </label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="service4" value="Inventory Management" name="service" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="service4" class="font-medium text-gray-700">Inventory Management</label>
+                      </div>
                     </div>
                   </div>
                 </fieldset>
               </div>
 
+
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-xl2 font-medium text-gray-900">What is your qualification? </label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Pharmacist</option>
-                  <option>Pharmacy technician</option>
-                  <option>Pharmacy technologist</option>
-                  <option>Nurse</option>
-                  <option>CHEW</option>
-                  <option>CHO</option>
-                  <option>Laboratory technician </option>
-                  <option>Environmental hygiene</option>
-                  <option>Other</option>
+                <label for="qualification" class="block text-xl2 font-medium text-gray-900">What is your qualification? </label>
+                <select id="qualification" name="qualification" autocomplete="qualification" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="Pharmacist">Pharmacist</option>
+                  <option value="Pharmacy technician">Pharmacy technician</option>
+                  <option value="Pharmacy technologist">Pharmacy technologist</option>
+                  <option value="Nurse">Nurse</option>
+                  <option value="CHEW">CHEW</option>
+                  <option value="CHO">CHO</option>
+                  <option value="Laboratory technician">Laboratory technician </option>
+                  <option value="Environmental hygiene">Environmental hygiene</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -219,16 +264,16 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">How many employees do you have currently?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5 </label>
+                      <input id="employees1" value="1 - 5" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="employees1" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5 </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 15 </label>
+                      <input id="employees2" value="6 - 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="employees2" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 15 </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> More than 15 </label>
+                      <input id="employees3" value="More than 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="employees3" class="ml-3 block text-sm font-medium text-gray-700"> More than 15 </label>
                     </div>
                   </div>
                 </fieldset>
@@ -239,20 +284,20 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">What is your turnover in the last 12 months?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Less than N100 Million </label>
+                      <input id="turnover1" value="Less than N100 Million " name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover1" class="ml-3 block text-sm font-medium text-gray-700"> Less than N100 Million </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> N100 Million to N500 Million </label>
+                      <input id="turnover2" value="N100 Million to N500 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover2" class="ml-3 block text-sm font-medium text-gray-700"> N100 Million to N500 Million </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> N500 Million to N1 Billion </label>
+                      <input id="turnover3" value="N500 Million to N1 Billion" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover3" class="ml-3 block text-sm font-medium text-gray-700"> N500 Million to N1 Billion </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Over N1 Billion </label>
+                      <input id="turnover4" value="Over N1 Billion" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover4" class="ml-3 block text-sm font-medium text-gray-700"> Over N1 Billion </label>
                     </div>
                   </div>
                 </fieldset>
@@ -263,24 +308,24 @@
                   <label for="country" class="block text-xl2 font-medium text-gray-900">What are your typical monthly sales?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Below 500,000 Naira </label>
+                      <input id="sales1" value="Below 500,000 Naira " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales1" class="ml-3 block text-sm font-medium text-gray-700"> Below 500,000 Naira </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - 1 Million </label>
+                      <input id="sales2" value="N500,000 - 1 Million " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales2" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - 1 Million </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1 Million to 1.7 Million </label>
+                      <input id="sales3" value="1 Million to 1.7 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Million to 1.7 Million </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> 1.7 Million to 3 Million </label>
+                      <input id="sales4" value="1.7 Million to 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales4" class="ml-3 block text-sm font-medium text-gray-700"> 1.7 Million to 3 Million </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> Above 3 Million </label>
+                      <input id="sales5" value="Above 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales5" class="ml-3 block text-sm font-medium text-gray-700"> Above 3 Million </label>
                     </div>
                   </div>
                 </fieldset>
@@ -288,19 +333,19 @@
 
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-xl2 font-medium text-gray-900"> Is your company registered with the Corporate Affairs Commission? </label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Yes</option>
-                  <option>No</option>
+                <label for="cac" class="block text-xl2 font-medium text-gray-900"> Is your company registered with the Corporate Affairs Commission? </label>
+                <select id="cac" name="cac" autocomplete="cac" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
               <br>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-xl2 font-medium text-gray-900"> Is your business registered with the Pharmacists Council of Nigeria? </label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Yes</option>
-                  <option>No</option>
+                <label for="council" class="block text-xl2 font-medium text-gray-900"> Is your business registered with the Pharmacists Council of Nigeria? </label>
+                <select id="council" name="council" autocomplete="council" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
 
