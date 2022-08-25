@@ -29,7 +29,17 @@ class Questionaire(models.Model):
     council = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now=True)
 
+class Kyc(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    passport_name = models.CharField(max_length=50)
+    outter_name = models.CharField(max_length=50)
+    inner_name = models.CharField(max_length=50)
+    client_Passport_Img = models.ImageField(upload_to='images/')
+    client_Outter_Img = models.ImageField(upload_to='images/')
+    client_Inner_Img = models.ImageField(upload_to='images/')
+
 class Shop(models.Model):
+    kyc = models.ForeignKey(Kyc, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     addr = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now=True)
@@ -37,4 +47,5 @@ class Shop(models.Model):
 class Drug(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name="owner")
     drug = models.CharField(max_length=255)
+    quantity = models.IntegerField()
     date = models.DateTimeField(auto_now=True)

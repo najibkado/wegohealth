@@ -11,10 +11,10 @@ html {
 	/*background = gradient + image pattern combo*/
 }
 
-body {
+/* body {
 	font-family: montserrat, arial, verdana;
 	background: linear-gradient(rgba(77, 48, 17, 0.6), rgba(155, 89, 182, 0.6));
-}
+} */
 /*form styles*/
 #msform {
 	width: 400px;

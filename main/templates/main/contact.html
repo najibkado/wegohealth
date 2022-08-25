@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Success</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/logo.svg' %}">
+    <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
+</head>
+<body class="h-full">
+  
+
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+          <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
+            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+      
+            <div>
+              <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+                <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                  <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                    <div class="flex items-center justify-between w-full md:w-auto">
+                      <a href="#">
+                        <span class="sr-only">Wego Healthcare</span>
+                        <img alt="Wego Health" class="h-8 w-auto sm:h-10" src="{% static '/logo.svg' %}">
+                      </a>
+                      <div class="-mr-2 flex items-center md:hidden">
+                        <button id="menu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                          <span class="sr-only">Open main menu</span>
+                          <!-- Heroicon name: outline/menu -->
+                          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+                    <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
+      
+                    <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+      
+                    <a href="{% url 'about' %}" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
+      
+                    <a href="{% url 'contact' %}" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+      
+                    <a href="{% url 'login' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+                  </div>
+                </nav>
+              </div>
+
+
+            <!-- component -->
+            <div class="py-16 bg-white">  
+                <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+                    <div class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
+                    <div class="md:5/12 lg:w-5/12">
+                        <img src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png" alt="image" loading="lazy" width="" height="">
+                    </div>
+                    <div class="md:7/12 lg:w-6/12">
+                        <h2 class="text-2xl text-gray-900 font-bold md:text-4xl">Contact Wego Healthcare</h2>
+                        <p class="mt-6 text-gray-600">No 4 Farmcentre ....</p>
+                        <p class="mt-4 text-gray-600"> Tel: 08012345678 | Mail: wegohealth@gmail.com</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+ <!-- Footer -->
+ <footer class="bg-gray-900">
+    <!-- Flex Container -->
+    <div
+      class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0"
+    >
+      <!-- Logo and social links container -->
+      <div
+        class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start"
+      >
+        <div class="mx-auto my-6 text-center text-white md:hidden">
+          Copyright &copy; 2022, All Rights Reserved Wego Health
+        </div>
+        <!-- Logo -->
+        <div>
+            <div class="flex">
+                <img src="{% static '/logo.svg' %}" class="h-8" alt="" />
+                <h3 class="ml-5 text-xl5 text-white pt-1">Wego Health</h3>
+            </div>
+          
+        </div>
+        <!-- Social Links Container -->
+        <div class="flex justify-center space-x-4">
+          <!-- Link 1 -->
+          <a href="#">
+            <img src="img/icon-facebook.svg" alt="" class="h-8" />
+          </a>
+          <!-- Link 2 -->
+          <a href="#">
+            <img src="img/icon-youtube.svg" alt="" class="h-8" />
+          </a>
+          <!-- Link 3 -->
+          <a href="#">
+            <img src="img/icon-twitter.svg" alt="" class="h-8" />
+          </a>
+          <!-- Link 4 -->
+          <a href="#">
+            <img src="img/icon-pinterest.svg" alt="" class="h-8" />
+          </a>
+          <!-- Link 5 -->
+          <a href="#">
+            <img src="img/icon-instagram.svg" alt="" class="h-8" />
+          </a>
+        </div>
+      </div>
+      <!-- List Container -->
+      <div class="flex justify-around space-x-32">
+        <div class="flex flex-col space-y-3 text-white">
+          <a href="{% url 'index' %}" class="hover:text-white">Home</a>
+          <a href="#" class="hover:text-white">Pricing</a>
+          <a href="#" class="hover:text-white">Products</a>
+          <a href="{% url 'about' %}" class="hover:text-white">About</a>
+        </div>
+        <div class="flex flex-col space-y-3 text-white">
+          <a href="#" class="hover:text-white">Careers</a>
+          <a href="#" class="hover:text-white">Community</a>
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Input Container -->
+      <div class="flex flex-col justify-between">
+        <form>
+          <div class="flex space-x-3">
+            <input
+              type="text"
+              class="flex-1 px-4 rounded-full focus:outline-none"
+              placeholder="Updated in your inbox"
+            />
+            <button
+              class="px-6 py-2 text-white rounded-full bg-indigo-500 hover:bg-gray-500 focus:outline-none"
+            >
+              Go
+            </button>
+          </div>
+        </form>
+        <div class="hidden text-white md:block">
+          Copyright &copy; 2022, All Rights Reserved Wego Health
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
