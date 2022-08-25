@@ -24,11 +24,14 @@ def login_view(request):
 
             login(request, user)
 
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("client"))
 
-        return HttpResponse("User not registered")
+        return HttpResponse("User not registered") 
 
-        return HttpResponseRedirect(reverse("client"))
+@login_required
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("index"))
 
 # Needs auth
 @login_required
