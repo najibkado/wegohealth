@@ -40,13 +40,13 @@
                 </div>
               </div>
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
+                <a href="{% url 'solutions' %}" class="font-medium text-gray-500 hover:text-gray-900">Solutions</a>
   
-                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+                <a href="#benefits" class="font-medium text-gray-500 hover:text-gray-900">Benefits</a>
   
                 <a href="{% url 'about' %}" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
   
-                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+                <a href="{% url 'contact' %}" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
   
                 <a href="{% url 'login' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
               </div>
@@ -105,7 +105,7 @@
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"> A platform with seamless distribution of health care products.</p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div class="rounded-md shadow">
-                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
+                <a href="{% url 'coming' %}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Shop on web </a>
               </div>
               <div class="mt-3 sm:mt-0 sm:ml-3">
                 <a href="{% url 'login' %}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> Login </a>
@@ -126,7 +126,7 @@
 <div class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <h2 class="text-lg text-indigo-600 font-semibold">Benefits</h2>
+        <h2 id="benefits" class="text-lg text-indigo-600 font-semibold">Benefits</h2>
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">A better way to order pharmaceuticals</p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
       </div>
@@ -226,10 +226,10 @@
       </h2>
       <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
         <div class="inline-flex rounded-md shadow">
-          <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Get started </a>
+          <a href="{% url 'coming' %}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Get started </a>
         </div>
         <div class="ml-3 inline-flex rounded-md shadow">
-          <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"> Learn more </a>
+          <a href="{% url 'about' %}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"> Learn more </a>
         </div>
       </div>
     </div>

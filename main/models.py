@@ -13,6 +13,12 @@ class Client(models.Model):
 
 class Questionaire(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    have_account = models.BooleanField(default=False)
+    loan_access = models.BooleanField(default=False)
+    financial_support = models.BooleanField(default=False)
+    max_loan = models.CharField(max_length=255)
+    business_experience = models.CharField(max_length=255)
+    shop_experience = models.CharField(max_length=255)
     is_business_owner = models.BooleanField(default=False)
     duration = models.CharField(max_length=255)
     delivery = models.CharField(max_length=255)

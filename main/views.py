@@ -74,6 +74,12 @@ def client_business(request, id):
         })
 
     if request.method == "POST":
+        account = request.POST["account"]
+        loan = request.POST["loan"]
+        support = request.POST["support"]
+        amount = request.POST["amount"]
+        busines_experience = request.POST["busines-experience"]
+        shop_experience = request.POST["shop-experience"]
         business_owner = request.POST["busines"]
         duration = request.POST.get("duration")
         delivery = request.POST.get("delivery")
@@ -98,6 +104,12 @@ def client_business(request, id):
         try:
             new_questionaire = models.Questionaire(
                 client = c,
+                have_account = True if account == "yes" else False,
+                loan_access = True if loan == "yes" else False,
+                financial_support = True if support == "yes" else False,
+                max_loan = amount,
+                business_experience = busines_experience,
+                shop_experience = shop_experience,
                 is_business_owner = True if business_owner == "yes" else False,
                 duration = duration,
                 delivery = delivery,
@@ -176,19 +188,19 @@ def drugs(request, id):
         })
 
     if request.method == "POST":
-        name = request.POST["name"]
-        addr = request.POST["addr"]
+        # name = request.POST["name"]
+        # addr = request.POST["addr"]
         drug = request.POST.getlist('test')
 
-        if name == "" or addr == "" or len(drug) == 0:
-            return HttpResponse("Can't submit empty fields")
+        # if name == "" or addr == "" or len(drug) == 0:
+        #     return HttpResponse("Can't submit empty fields")
 
         kyc = models.Kyc.objects.get(pk=id)
 
         shop = models.Shop.objects.create(
             kyc = kyc,
-            name = name,
-            addr = addr
+            name = kyc.client.name,
+            addr = kyc.client.address
         )
         shop.save()
 
@@ -255,6 +267,12 @@ def about(request):
 
 def contact(request):
     return render(request, "main/contact.html")
+
+def coiming(request):
+    return render(request, "main/coming.html")
+
+def solutions(request):
+    return render(request, "main/solutions.html")
 
 @login_required
 def reg(request):

@@ -23,7 +23,7 @@
     <div class="">
       <div>
         <img class="mx-auto h-12 w-auto" src="{% static '/logo.svg' %}" alt="Wego Health">
-        <h2 class="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">Client {{id}} Pharmaceutical Information</h2>
+        <h2 class="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">Client Pharmaceutical Information</h2>
         <p class="mt-2 mb-2 text-center text-sm text-gray-600">
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> All fields are required </a>
         </p>
@@ -33,10 +33,8 @@
       <form id="msform" action="{% url 'drugs' id %}" method="post">
         {% csrf_token %}
         <fieldset>
-        <h2 class="fs-title">Shop Infomation</h2>
-        <input type="text" name="name" placeholder="Shop Name" />
-        <input type="text" name="addr" placeholder="Shop Address" />
-        <select data-placeholder="Search Drug" multiple class="form-control chosen-select" name="test">
+        <h2 class="fs-title">Select top 20 drugs sold and their quantities in the last one month.</h2>
+        <select data-placeholder="Search Drug" multiple class="form-control chosen-select" name="test" style="width: auto;">
           <option value=""></option>
           <option value="Metronidazole">Metronidazole</option> 
           <option value="Tinidazole">Tinidazole</option> 
@@ -2048,7 +2046,7 @@
         </select>
         <br>
         <br>
-        <input id="form" type="submit">
+        <input id="form" type="submit" value="Next">
     </fieldset>
     </form>
 
