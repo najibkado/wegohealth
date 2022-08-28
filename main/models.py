@@ -54,4 +54,5 @@ class Drug(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name="owner")
     drug = models.CharField(max_length=255)
     quantity = models.IntegerField()
+    approved = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now=True)

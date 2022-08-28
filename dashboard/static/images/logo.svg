@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122" height="96" viewBox="0 0 122 96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4f46dd;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #707070;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: #6c63ff;
+      }
+
+      .cls-6 {
+        filter: url(#Ellipse_103);
+      }
+
+      .cls-7 {
+        filter: url(#Ellipse_100);
+      }
+
+      .cls-8 {
+        filter: url(#Ellipse_101);
+      }
+
+      .cls-9 {
+        filter: url(#Ellipse_104);
+      }
+
+      .cls-10 {
+        filter: url(#Ellipse_102);
+      }
+    </style>
+    <filter id="Ellipse_102" x="0" y="20" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#413636" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4f46dd"/>
+      <stop offset="1" stop-color="#827be5"/>
+    </linearGradient>
+    <filter id="Ellipse_104" x="84" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#413636" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_101" x="69" y="58" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-color="#413636" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6c63ff"/>
+      <stop offset="1" stop-color="#9d9cbe"/>
+    </linearGradient>
+    <filter id="Ellipse_100" x="19" y="58" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-color="#413636" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_103" x="44" y="26" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-color="#413636" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_151" data-name="Group 151" transform="translate(-722 -1648)">
+    <g class="cls-10" transform="matrix(1, 0, 0, 1, 722, 1648)">
+      <circle id="Ellipse_102-2" data-name="Ellipse 102" class="cls-1" cx="10" cy="10" r="10" transform="translate(9 26)"/>
+    </g>
+    <line id="Line_10" data-name="Line 10" class="cls-2" x1="14" y2="17" transform="translate(765.5 1697.5)"/>
+    <line id="Line_11" data-name="Line 11" class="cls-2" x2="14" y2="17" transform="translate(791.5 1697.5)"/>
+    <line id="Line_12" data-name="Line 12" class="cls-2" y1="17" x2="25" transform="translate(791.5 1667.5)"/>
+    <line id="Line_13" data-name="Line 13" class="cls-2" x2="25" y2="2" transform="translate(750.5 1686.5)"/>
+    <g class="cls-9" transform="matrix(1, 0, 0, 1, 722, 1648)">
+      <circle id="Ellipse_104-2" data-name="Ellipse 104" class="cls-3" cx="10" cy="10" r="10" transform="translate(93 6)"/>
+    </g>
+    <g class="cls-8" transform="matrix(1, 0, 0, 1, 722, 1648)">
+      <circle id="Ellipse_101-2" data-name="Ellipse 101" class="cls-1" cx="10" cy="10" r="10" transform="translate(78 64)"/>
+    </g>
+    <g class="cls-7" transform="matrix(1, 0, 0, 1, 722, 1648)">
+      <circle id="Ellipse_100-2" data-name="Ellipse 100" class="cls-4" cx="10" cy="10" r="10" transform="translate(28 64)"/>
+    </g>
+    <g class="cls-6" transform="matrix(1, 0, 0, 1, 722, 1648)">
+      <circle id="Ellipse_103-2" data-name="Ellipse 103" class="cls-5" cx="10" cy="10" r="10" transform="translate(53 32)"/>
+    </g>
+  </g>
+</svg>

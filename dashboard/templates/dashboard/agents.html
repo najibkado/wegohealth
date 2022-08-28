@@ -1,0 +1,62 @@
+{% load static %}
+{% include 'dashboard/layout.html' %}
+
+{% block body %}
+           <!-- partial -->
+           <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="home-tab">
+                    <!-- TODO -->
+                    <div class="col-lg-8 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">All Agents</h4>
+                            <p class="card-description">
+                              All Approved <code>agents</code>
+                            </p>
+                            <div class="table-responsive">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>username</th>
+                                    <th>email</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in agents %}
+                                  <tr>
+                                    <td>{{item.first_name}}</td>
+                                    <td>{{item.last_name}}</td>
+                                    <td>{{item.username}}</td>
+                                    <td>{{item.email}}</td>
+                                  </tr>
+                                    {% endfor %}  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Wego Healthcare Copyright © 2022. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+{% endblock %}

@@ -1,0 +1,124 @@
+{% load static %}
+{% include 'dashboard/layout.html' %}
+
+{% block body %}
+
+       <!-- partial -->
+       <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
+                    </li> -->
+
+                  </ul>
+                  
+                </div>
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="statistics-details d-flex align-items-center justify-content-between">
+                          <div>
+                            <p class="statistics-title">All Surveys</p>
+                            <h3 class="rate-percentage">{{surveys}}</h3>
+                            
+                          </div>
+                          <div>
+                            <p class="statistics-title">Approved Surveys</p>
+                            <h3 class="rate-percentage">{{approved}}</h3>
+                            
+                          </div>
+                          <div>
+                            <p class="statistics-title">Survey Requests</p>
+                            <h3 class="rate-percentage">{{requests}}</h3>
+                            
+                          </div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Agents</p>
+                            <h3 class="rate-percentage">{{agents}}</h3>
+                            
+                          </div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Administrators</p>
+                            <h3 class="rate-percentage">{{admin}}</h3>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                   
+                    <div class="row">
+                      <div class="col-lg-8 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-12 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-start">
+                                  <div>
+                                    <h4 class="card-title card-title-dash">State Survey Overview</h4>
+                                   <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                  </div>
+                                
+                                </div>
+                                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                                  <div class="d-sm-flex align-items-center mt-4 justify-content-between"><h2 class="me-2 fw-bold">36,2531.00</h2><h4 class="me-2"></h4><h4 class="text-success">(+1.37%)</h4></div>
+                                  <div class="me-3"><div id="marketing-overview-legend"></div></div>
+                                </div>
+                                <div class="chartjs-bar-wrapper mt-3">
+                                  <canvas id="marketingOverview"></canvas>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     
+                      </div>
+                      <div class="col-lg-4 d-flex flex-column">
+            
+                        <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded table-darkBGImg">
+                                <div class="card-body">
+                                  <div class="col-sm-8">
+                                    <h3 class="text-white upgrade-info mb-0">
+                                      Enhance your <span class="fw-bold">Campaign</span> for better outreach
+                                    </h3>
+                                    <a href="{% url 'logout' %}" class="btn btn-info upgrade-btn">Logout!</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Wego Healthcare Copyright © 2022. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+{% endblock %}
