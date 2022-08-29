@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
@@ -128,15 +129,19 @@ def new_agent(request):
         email = request.POST["email"]
         password = request.POST["password"]
 
-        new_user = User.objects.create_user(
-            first_name=first_name,
-            last_name=last_name,
-            username=username,
-            email=email,
-            password=password
-        )
+        try:
+            new_user = User.objects.create_user(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password
+            )
 
-        new_user.save()
+            new_user.save()
+        except IntegrityError:
+            return HttpResponse("Pls provide all required data")
+            
         return render(request, "dashboard/new_agent.html", {
             "success": True,
             "username":new_user.username,
@@ -159,16 +164,20 @@ def new_admin(request):
         email = request.POST["email"]
         password = request.POST["password"]
 
-        new_user = User.objects.create_user(
-            first_name=first_name,
-            last_name=last_name,
-            username=username,
-            email=email,
-            password=password,
-            is_superuser=True
-        )
+        try:
+            new_user = User.objects.create_user(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password,
+                is_superuser=True
+            )
 
-        new_user.save()
+            new_user.save()
+        except IntegrityError:
+            return HttpResponse("Pls provide all required data")
+
         return render(request, "dashboard/new_admin.html", {
             "success": True,
             "username":new_user.username,
