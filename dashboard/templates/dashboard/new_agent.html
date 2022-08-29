@@ -13,26 +13,27 @@
                         <p class="card-description">
                         Users that have acces to collect a survey form
                         </p>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="{% url 'new_agent' %}" method="post">
+                            {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputUsername1">First Name</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="First Name">
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" placeholder="First Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername1">Last Name</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Last Name">
+                            <input type="text" name="last-name" class="form-control" id="exampleInputUsername1" placeholder="Last Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername1">Username</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                            <input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="Username">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         </div>
                         <!-- <div class="form-check form-check-flat form-check-primary">
                             <label class="form-check-label">
@@ -45,6 +46,36 @@
                     </div>
                     </div>
                 </div>
+                {% if success %}
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Successful</h4>
+                        <p class="card-description">
+                        A new agent has been created with the following credentials
+                        </p>
+                        <br>
+                        <br>
+                        <p class="card-description">
+                            Username: {{username}}
+                            </p>
+                            <p class="card-description">
+                                Password: {{password}}
+                                </p>
+                        <form class="forms-sample" action="{% url 'new_agent' %}" method="get">
+                            {% csrf_token %}
+                        <!-- <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Remember me
+                            </label>
+                        </div> -->
+                        <button type="submit" class="btn btn-primary me-2">Finish</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                {% endif %}
 
 
             </div>

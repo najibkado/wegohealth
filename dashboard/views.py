@@ -114,23 +114,66 @@ def agents(request):
 
 @login_required
 def new_agent(request):
-    if request.method == "GET":
-
-        if not request.user.is_superuser:
+    if not request.user.is_superuser:
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
-        
+
+    if request.method == "GET":
         return render(request, "dashboard/new_agent.html")
+
+    if request.method == "POST":
+        first_name = request.POST["first-name"]
+        last_name = request.POST["last-name"]
+        username = request.POST["username"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+
+        new_user = User.objects.create_user(
+            first_name=first_name,
+            last_name=last_name,
+            username=username,
+            email=email,
+            password=password
+        )
+
+        new_user.save()
+        return render(request, "dashboard/new_agent.html", {
+            "success": True,
+            "username":new_user.username,
+            "password":password
+        })
 
 @login_required
 def new_admin(request):
-    if request.method == "GET":
-
-        if not request.user.is_superuser:
+    if not request.user.is_superuser:
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
-        
+
+    if request.method == "GET":
         return render(request, "dashboard/new_admin.html")
+
+    if request.method == "POST":
+        first_name = request.POST["first-name"]
+        last_name = request.POST["last-name"]
+        username = request.POST["username"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+
+        new_user = User.objects.create_user(
+            first_name=first_name,
+            last_name=last_name,
+            username=username,
+            email=email,
+            password=password,
+            is_superuser=True
+        )
+
+        new_user.save()
+        return render(request, "dashboard/new_admin.html", {
+            "success": True,
+            "username":new_user.username,
+            "password":password
+        })
 
 
 @login_required
