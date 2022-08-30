@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.login_view, name="dashboard_login"),
     path('index', views.dashboard_index, name="dashboard_index"),
     path('requests', views.survey_requests, name="survey_requests"),
+    path('requests/review/<int:id>', views.review_requests, name="review_requests"),
     path('approved', views.approved, name="dashboard_approved"),
     path('all', views.all, name="dashboard_all"),
     path('agents', views.agents, name="agents"),

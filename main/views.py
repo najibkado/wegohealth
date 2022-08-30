@@ -165,9 +165,9 @@ def client_kyc(request, id):
 
             kyc = models.Kyc(
                 client = client,
-                passport_name = client.business_name + "passport",
-                outter_name = client.business_name + "outter shop",
-                inner_name = client.business_name + "inner shop",
+                passport_name = client.business_name + " Passport",
+                outter_name = client.business_name + " Outter shop",
+                inner_name = client.business_name + " Inner shop",
                 client_Passport_Img = passport,
                 client_Outter_Img = outter,
                 client_Inner_Img = inner

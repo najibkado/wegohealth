@@ -86,6 +86,38 @@ def survey_requests(request):
             "requests": requests
         })
 
+@login_required
+def review_requests(request, id):
+    if request.method == "GET":
+
+        if not request.user.is_superuser:
+            messages.error(request, "You have no access to this portal!")
+            return HttpResponseRedirect(reverse("dashboard_login"))
+        
+        shops = set()
+        requests = []
+        unrequests = models.Drug.objects.filter(approved=False)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                requests.append(req)
+
+        shop = models.Shop.objects.get(pk=id)
+        personal_info = shop.kyc.client
+        survey = models.Questionaire.objects.get(client=personal_info)
+        drugs = models.Drug.objects.filter(shop=shop)
+        kyc = models.Kyc.objects.get(client=personal_info)
+
+        return render(request, "dashboard/review.html", {
+            "personal": personal_info,
+            "survey": survey,
+            "drugs": drugs,
+            "kyc": kyc
+        })
+
 
 @login_required
 def all(request):
@@ -95,7 +127,7 @@ def all(request):
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
         
-        
+
         all = []
         shops = set()
         unrequests = models.Drug.objects.all()
