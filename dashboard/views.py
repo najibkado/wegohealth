@@ -109,7 +109,7 @@ def review_requests(request, id):
         personal_info = shop.kyc.client
         survey = models.Questionaire.objects.get(client=personal_info)
         drugs = models.Drug.objects.filter(shop=shop)
-        kyc = models.Kyc.objects.get(client=personal_info)
+        kyc = models.Kyc.objects.filter(client=personal_info).last()
 
         return render(request, "dashboard/review.html", {
             "personal": personal_info,
