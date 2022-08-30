@@ -9,6 +9,7 @@ from main import models
 from main.models import User
 
 # Create your views here.
+#TODO: When approving a survey, you have to make all drugs approved to valid
 
 def login_view(request):
 
@@ -70,7 +71,17 @@ def survey_requests(request):
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
         
-        requests = models.Drug.objects.filter(approved=False)
+        shops = set()
+        requests = []
+        unrequests = models.Drug.objects.filter(approved=False)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                requests.append(req)
+
         return render(request, "dashboard/requests.html", {
             "requests": requests
         })
@@ -84,7 +95,18 @@ def all(request):
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
         
-        all = models.Drug.objects.all()
+        
+        all = []
+        shops = set()
+        unrequests = models.Drug.objects.all()
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                all.append(req)
+
         return render(request, "dashboard/all.html", {
             "all": all
         })
@@ -96,8 +118,18 @@ def approved(request):
         if not request.user.is_superuser:
             messages.error(request, "You have no access to this portal!")
             return HttpResponseRedirect(reverse("dashboard_login"))
+
+        shops = set()
+        approved = []
+        unrequests = models.Drug.objects.filter(approved=True)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                approved.append(req)
         
-        approved = models.Drug.objects.filter(approved=True)
         return render(request, "dashboard/approved.html", {
             "approved": approved
         })
