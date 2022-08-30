@@ -10,6 +10,7 @@ urlpatterns = [
     path('all', views.all, name="dashboard_all"),
     path('agents', views.agents, name="agents"),
     path('agents/new', views.new_agent, name="new_agent"),
+    path('user/del/<int:id>', views.del_agent, name="del_agent"),
     path('administrators', views.administrators, name="administrators"),
     path('administrators/new', views.new_admin, name="new_admin")
 ]

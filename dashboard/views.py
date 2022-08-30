@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from main import models
-from django.contrib.auth.models import User
+from main.models import User
 
 # Create your views here.
 
@@ -30,7 +30,7 @@ def login_view(request):
             messages.error(request, "Invalid user credentials")
             return HttpResponseRedirect(reverse("dashboard_login"))
 
-        if user.is_superuser:
+        if user.is_superuser or user.is_admin:
             login(request, user=user)
             return HttpResponseRedirect(reverse("dashboard_index"))
 
@@ -40,11 +40,13 @@ def login_view(request):
 @login_required
 def dashboard_index(request):
 
-    if request.method == "GET":
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
 
-        if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
+    if request.method == "GET":
 
         surverys = len(models.Client.objects.all())
         approved = len(models.Drug.objects.filter(approved=True))
@@ -102,22 +104,40 @@ def approved(request):
 
 @login_required
 def agents(request):
-    if request.method == "GET":
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
 
-        if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
-        
-        agents = User.objects.filter(is_superuser=False)
+    if request.method == "GET": 
+        agents = User.objects.filter(is_admin=False, is_superuser=False)
         return render(request, "dashboard/agents.html", {
             "agents": agents
         })
 
 @login_required
+def del_agent(request, id):
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "GET":
+        agents = User.objects.get(pk=id)
+        agents.delete()
+        messages.success(request, "Successfully deleted")
+        return HttpResponseRedirect(reverse("agents"))
+
+
+@login_required
 def new_agent(request):
-    if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
 
     if request.method == "GET":
         return render(request, "dashboard/new_agent.html")
@@ -141,7 +161,7 @@ def new_agent(request):
             new_user.save()
         except IntegrityError:
             return HttpResponse("Pls provide all required data")
-            
+
         return render(request, "dashboard/new_agent.html", {
             "success": True,
             "username":new_user.username,
@@ -150,9 +170,12 @@ def new_agent(request):
 
 @login_required
 def new_admin(request):
-    if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
 
     if request.method == "GET":
         return render(request, "dashboard/new_admin.html")
@@ -171,7 +194,7 @@ def new_admin(request):
                 username=username,
                 email=email,
                 password=password,
-                is_superuser=True
+                is_admin=True
             )
 
             new_user.save()
@@ -187,13 +210,15 @@ def new_admin(request):
 
 @login_required
 def administrators(request):
-    if request.method == "GET":
 
-        if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
-        
-        administrators = User.objects.filter(is_superuser=True)
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "GET":
+        administrators = User.objects.filter(is_admin=True)
         return render(request, "dashboard/administrators.html", {
             "administrators": administrators
         })

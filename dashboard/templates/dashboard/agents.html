@@ -24,6 +24,7 @@
                                     <th>Last Name</th>
                                     <th>username</th>
                                     <th>email</th>
+                                    <th>action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +34,7 @@
                                     <td>{{item.last_name}}</td>
                                     <td>{{item.username}}</td>
                                     <td>{{item.email}}</td>
+                                    <td><a href="{% url 'del_agent' item.pk %}">Delete</a></td>
                                   </tr>
                                     {% endfor %}  
                                 </tbody>
