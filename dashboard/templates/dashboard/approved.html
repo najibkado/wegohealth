@@ -26,6 +26,7 @@
                                     <th>State</th>
                                     <th>Local govt</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -37,6 +38,7 @@
                                     <td>Kano</td>
                                     <td>Nassarawa</td>
                                     <td><label class="badge badge-success">Approved</label></td>
+                                    <td><a href="{% url 'preview' item.shop.pk %}">Preview</a></td>
                                   </tr>
                                     {% endfor %}  
                                 </tbody>

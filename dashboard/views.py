@@ -50,15 +50,30 @@ def dashboard_index(request):
     if request.method == "GET":
 
         surverys = len(models.Client.objects.all())
-        approved = len(models.Drug.objects.filter(approved=True))
-        requests = len(models.Drug.objects.filter(approved=False))
-        agents = len(User.objects.filter(is_superuser=False))
-        admin = len(User.objects.filter(is_superuser=True))
+        approved = models.Drug.objects.filter(approved=True)
+        requests = models.Drug.objects.filter(approved=False)
+        agents = len(User.objects.filter(is_admin=False))
+        admin = len(User.objects.filter(is_admin=True))
+
+        approved_shops = set()
+        requests_shops = set()
+
+        for req in approved:
+            if req.shop in approved_shops:
+                pass
+            else:
+                approved_shops.add(req.shop)
+
+        for req in requests:
+            if req.shop in requests_shops:
+                pass
+            else:
+                requests_shops.add(req.shop)
 
         return render(request, "dashboard/index.html", {
             "surveys": surverys,
-            "approved": approved,
-            "requests": requests,
+            "approved": len(approved_shops),
+            "requests": len(requests_shops),
             "agents": agents,
             "admin": admin
         })
@@ -88,23 +103,11 @@ def survey_requests(request):
 
 @login_required
 def review_requests(request, id):
+    if not request.user.is_superuser:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
     if request.method == "GET":
-
-        if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
-        
-        shops = set()
-        requests = []
-        unrequests = models.Drug.objects.filter(approved=False)
-
-        for req in unrequests:
-            if req.shop in shops:
-                pass
-            else:
-                shops.add(req.shop)
-                requests.append(req)
-
         shop = models.Shop.objects.get(pk=id)
         personal_info = shop.kyc.client
         survey = models.Questionaire.objects.get(client=personal_info)
@@ -115,7 +118,41 @@ def review_requests(request, id):
             "personal": personal_info,
             "survey": survey,
             "drugs": drugs,
-            "kyc": kyc
+            "kyc": kyc,
+            "shop": shop
+        })
+
+    if request.method == "POST":
+        shop = models.Shop.objects.get(pk=id)
+        drugs = models.Drug.objects.filter(shop=shop)
+
+        for drug in drugs:
+            drug.approved = True
+            drug.save()
+
+        messages.success(request, "Approved Successfuly")
+        return HttpResponseRedirect(reverse("survey_requests"))
+
+@login_required
+def approved_preview(request, id):
+    if not request.user.is_superuser:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "GET":
+
+        shop = models.Shop.objects.get(pk=id)
+        personal_info = shop.kyc.client
+        survey = models.Questionaire.objects.get(client=personal_info)
+        drugs = models.Drug.objects.filter(shop=shop)
+        kyc = models.Kyc.objects.filter(client=personal_info).last()
+
+        return render(request, "dashboard/preview.html", {
+            "personal": personal_info,
+            "survey": survey,
+            "drugs": drugs,
+            "kyc": kyc,
+            "shop": shop
         })
 
 
