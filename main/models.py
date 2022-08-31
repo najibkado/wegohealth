@@ -49,6 +49,7 @@ class Kyc(models.Model):
     client_Inner_Img = models.ImageField(upload_to='images/')
 
 class Shop(models.Model):
+    agent = models.ForeignKey(User, on_delete=models.CASCADE)
     kyc = models.ForeignKey(Kyc, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     addr = models.CharField(max_length=255)
@@ -59,4 +60,5 @@ class Drug(models.Model):
     drug = models.CharField(max_length=255)
     quantity = models.IntegerField()
     approved = models.BooleanField(default=False)
+    declined = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now=True)

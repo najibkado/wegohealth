@@ -198,6 +198,7 @@ def drugs(request, id):
         kyc = models.Kyc.objects.get(pk=id)
 
         shop = models.Shop.objects.create(
+            agent = request.user,
             kyc = kyc,
             name = kyc.client.name,
             addr = kyc.client.address

@@ -34,7 +34,9 @@
                                     <td>{{item.last_name}}</td>
                                     <td>{{item.username}}</td>
                                     <td>{{item.email}}</td>
-                                    <td><a href="{% url 'del_agent' item.pk %}">Delete</a></td>
+                                    <td><a style="margin: 5px;" href="{% url 'del_agent' item.pk %}">Delete</a>
+                                      <a style="margin: 5px;"  href="{% url 'jobs' item.pk  %}">Jobs</a>
+                                    </td>
                                   </tr>
                                     {% endfor %}  
                                 </tbody>

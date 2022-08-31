@@ -88,7 +88,7 @@ def survey_requests(request):
         
         shops = set()
         requests = []
-        unrequests = models.Drug.objects.filter(approved=False)
+        unrequests = models.Drug.objects.filter(approved=False, declined=False)
 
         for req in unrequests:
             if req.shop in shops:
@@ -131,6 +131,23 @@ def review_requests(request, id):
             drug.save()
 
         messages.success(request, "Approved Successfuly")
+        return HttpResponseRedirect(reverse("survey_requests"))
+
+@login_required
+def decline_requests(request, id):
+    if not request.user.is_superuser:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "POST":
+        shop = models.Shop.objects.get(pk=id)
+        drugs = models.Drug.objects.filter(shop=shop)
+
+        for drug in drugs:
+            drug.declined = True
+            drug.save()
+
+        messages.success(request, "Declined Successfuly")
         return HttpResponseRedirect(reverse("survey_requests"))
 
 @login_required
@@ -231,6 +248,47 @@ def del_agent(request, id):
         messages.success(request, "Successfully deleted")
         return HttpResponseRedirect(reverse("agents"))
 
+@login_required
+def jobs(request, id):
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "GET":
+        agent = User.objects.get(pk=id)
+        shops = models.Shop.objects.filter(agent=agent)
+        
+        requests = set()
+        approved = set()
+        declined = set()
+
+        for shop in shops:
+            drugs = models.Drug.objects.filter(shop=shop)
+
+            if not drugs:
+                pass
+
+            if drugs[0].approved:
+                approved.add(shop)
+
+            if drugs[0].declined:
+                declined.add(shop)
+
+            requests.add(shop)
+                
+
+
+        return render(request, "dashboard/jobs.html", {
+            "agent": agent,
+            "requests": requests,
+            "approved": approved,
+            "declined": declined,
+            "req_count": len(requests),
+            "app_count": len(approved),
+            "dec_count": len(declined)
+        })
 
 @login_required
 def new_agent(request):
