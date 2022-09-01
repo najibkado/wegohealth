@@ -191,25 +191,35 @@
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Customer Pictures</h4>
-                        {{kyc.passport_name}} <br>
-                        {% if kyc.client_Passport_Img %}
-                        <img src="{{kyc.client_Passport_Img.url}}" alt="{{kyc.passport_name}}">
-                        {% endif %}
+                        <h4 class="card-title">Customer KYC</h4>
 
-                        {{kyc.outter_name}} <br>
-                        {% if kyc.client_Outter_Img %}
-                        <img src="{{kyc.client_Outter_Img.url}}" alt="{{kyc.client_Inner_Img}}">
-                        {% endif %}
+                            <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                              <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                                {{kyc.passport_name}} <br>
+                                {% if kyc.client_Passport_Img %}
+                                <img src="{{kyc.client_Passport_Img.url}}" alt="{{kyc.passport_name}}" class="h-full w-full object-cover object-center">
+                                {% endif %}
+                              </div>
+                              <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                                {{kyc.outter_name}} <br>
+                                {% if kyc.client_Outter_Img %}
+                                <img src="{{kyc.client_Outter_Img.url}}" alt="{{kyc.client_Inner_Img}}" class="h-full w-full object-cover object-center">
+                                {% endif %}
+                              </div>
+                              <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">     
+                                {{kyc.inner_name}} <br>
+                                {% if kyc.client_Inner_Img %}
+                                <img src="{{kyc.client_Inner_Img.url}}" alt="{{kyc.inner_name}}" class="h-full w-full object-cover object-center">
+                                {% endif %}
+                              </div>
+                            </div>
 
-                        {{kyc.inner_name}} <br>
-                        {% if kyc.client_Inner_Img %}
-                        <img src="{{kyc.client_Inner_Img.url}}" alt="{{kyc.inner_name}}">
-                        {% endif %}
                         
                     </div>
                     </div>
                 </div>
+
+              
                 
 
                 
