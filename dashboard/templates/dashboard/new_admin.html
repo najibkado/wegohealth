@@ -6,6 +6,7 @@
         <div class="main-panel">        
             <div class="content-wrapper">
               <div class="row">  
+                {% include 'dashboard/messages/messages.html' %}
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                     <div class="card-body">
@@ -26,6 +27,10 @@
                         <div class="form-group">
                             <label for="exampleInputUsername1">Username</label>
                             <input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Phone</label>
+                            <input type="text" name="phone" class="form-control" id="exampleInputUsername1" placeholder="Phone">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>

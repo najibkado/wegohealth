@@ -80,11 +80,13 @@ def dashboard_index(request):
 
 @login_required
 def survey_requests(request):
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
+        messages.error(request, "You have no access to this portal!")
+        return HttpResponseRedirect(reverse("dashboard_login"))
+   
     if request.method == "GET":
-
-        if not request.user.is_superuser:
-            messages.error(request, "You have no access to this portal!")
-            return HttpResponseRedirect(reverse("dashboard_login"))
         
         shops = set()
         requests = []
@@ -103,7 +105,9 @@ def survey_requests(request):
 
 @login_required
 def review_requests(request, id):
-    if not request.user.is_superuser:
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
         messages.error(request, "You have no access to this portal!")
         return HttpResponseRedirect(reverse("dashboard_login"))
 
@@ -135,7 +139,9 @@ def review_requests(request, id):
 
 @login_required
 def decline_requests(request, id):
-    if not request.user.is_superuser:
+    if request.user.is_superuser or request.user.is_admin:
+        pass
+    else:
         messages.error(request, "You have no access to this portal!")
         return HttpResponseRedirect(reverse("dashboard_login"))
 
@@ -244,6 +250,12 @@ def del_agent(request, id):
 
     if request.method == "GET":
         agents = User.objects.get(pk=id)
+        return render(request, "dashboard/del_confirm.html", {
+            "agent": agents
+        })
+
+    if request.method == "POST":
+        agents = User.objects.get(pk=id)
         agents.delete()
         messages.success(request, "Successfully deleted")
         return HttpResponseRedirect(reverse("agents"))
@@ -306,6 +318,7 @@ def new_agent(request):
         last_name = request.POST["last-name"]
         username = request.POST["username"]
         email = request.POST["email"]
+        phone = request.POST["phone"]
         password = request.POST["password"]
 
         try:
@@ -314,13 +327,16 @@ def new_agent(request):
                 last_name=last_name,
                 username=username,
                 email=email,
-                password=password
+                password=password,
+                phone=phone
             )
 
             new_user.save()
         except IntegrityError:
-            return HttpResponse("Pls provide all required data")
+            messages.error(request, "Pls provide all required data!")
+            return HttpResponseRedirect(reverse("new_agent"))
 
+        messages.success(request, "Successfull!")
         return render(request, "dashboard/new_agent.html", {
             "success": True,
             "username":new_user.username,
@@ -344,6 +360,7 @@ def new_admin(request):
         last_name = request.POST["last-name"]
         username = request.POST["username"]
         email = request.POST["email"]
+        phone = request.POST["phone"]
         password = request.POST["password"]
 
         try:
@@ -353,19 +370,21 @@ def new_admin(request):
                 username=username,
                 email=email,
                 password=password,
-                is_admin=True
+                is_admin=True,
+                phone=phone
             )
 
             new_user.save()
         except IntegrityError:
-            return HttpResponse("Pls provide all required data")
+            messages.error(request, "Pls provide all required data!")
+            return HttpResponseRedirect(reverse("new_admin"))
 
+        messages.success(request, "Successfull!")
         return render(request, "dashboard/new_admin.html", {
             "success": True,
             "username":new_user.username,
             "password":password
         })
-
 
 @login_required
 def administrators(request):
