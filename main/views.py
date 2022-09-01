@@ -5,6 +5,7 @@ from . import models
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -99,7 +100,13 @@ def client_business(request, id):
         try:
             c = models.Client.objects.get(pk=id)
         except models.Client.DoesNotExist:
-            return HttpResponse("Registered Client Does not exist")
+            return HttpResponseRedirect(reverse("client"))
+
+        try:
+            q = models.Questionaire.objects.get(client=c)
+            return HttpResponseRedirect(reverse("kyc", args=(q.pk,)))
+        except models.Questionaire.DoesNotExist:
+            pass
 
         try:
             new_questionaire = models.Questionaire(
@@ -150,7 +157,13 @@ def client_kyc(request, id):
         try:
             client = models.Questionaire.objects.get(pk=id).client
         except models.Questionaire.DoesNotExist:
-            return HttpResponse("Client does not exist")
+            return HttpResponseRedirect(reverse("client"))
+
+        try:
+            k = models.Kyc.objects.get(client=client)
+            return HttpResponseRedirect(reverse("drugs", args=(k.pk,)))
+        except models.Kyc.DoesNotExist:
+            pass
 
         try:
 
@@ -175,7 +188,8 @@ def client_kyc(request, id):
 
             kyc.save()
         except IntegrityError:
-            return HttpResponse("Unable to upload pictures")
+            messages.error(request, "Unable to upload pictures, Try again!")
+            return HttpResponseRedirect(reverse("kyc", args=(id,)))
 
         return HttpResponseRedirect(reverse("drugs", args=(kyc.pk,)))
 
