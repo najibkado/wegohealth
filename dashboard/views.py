@@ -6,7 +6,11 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from main import models
-from main.models import User
+from main.models import Drug, Questionaire, User
+import csv
+import os
+
+from main.views import shop
 
 # Create your views here.
 #TODO: When approving a survey, you have to make all drugs approved to valid
@@ -70,12 +74,20 @@ def dashboard_index(request):
             else:
                 requests_shops.add(req.shop)
 
+        sample = []
+        labels = ["Kano","Jigawa", "Katsina", "Yobe", "Bauchi", "Gombe", "Adamawa", "Taraba", "Kaduna", "Zamfara"]
+
+        for label in labels:
+            c = models.Client.objects.filter(state=label)
+            sample.append(len(c))
+
         return render(request, "dashboard/index.html", {
             "surveys": surverys,
             "approved": len(approved_shops),
             "requests": len(requests_shops),
             "agents": agents,
-            "admin": admin
+            "admin": admin,
+            "sample": sample
         })
 
 @login_required
@@ -178,6 +190,140 @@ def approved_preview(request, id):
             "shop": shop
         })
 
+@login_required
+def generate_csv(request):
+    if request.method == "GET":
+
+        if not request.user.is_superuser:
+            messages.error(request, "You have no access to this portal!")
+            return HttpResponseRedirect(reverse("dashboard_login"))
+
+        # file = open("data.csv", "w")
+        header = [
+            'Wego ID',
+            'Customer Name',
+            'Business Name',
+            'Email',
+            'Phone Number',
+            'Address',
+            'State',
+            'Local Government',
+            'Ward',
+            'Gender',
+            'Age',
+            'Date Collected',
+            'Do you have a bank account?',
+            'Have you had access to loan for your business?',
+            'Do you need financial support in form of loan for your business?',
+            'What is the maximum amount that you be able to collect as loan for your business?',
+            'Years of experience in business?',
+            'Years in present shop?',
+            'Are you the business owner?',
+            'Expected time of delivery when you place order for drugs on our app?',
+            'How much would you be able to pay for delivery after placing order for drugs on our app?',
+            'How often do you visit the market in a month to buy drugs for your business?',
+            'What are your major challenges in this business?',
+            'How much credit worth of drugs do you give out to your customers in a monthly?',
+            'Do debtors slow down your business turn over?',
+            'What Services are you interested in from our app?',
+            'What is your qualification?',
+            'How many employees do you have currently?',
+            'What is your turnover in the last 12 months?',
+            'What are your typical monthly sales?',
+            'Is your company registered with the Corporate Affairs Commission?',
+            'Is your business registered with the Pharmacists Council of Nigeria?',
+            'Date Collected',
+            'Collected By',
+            'Agent Name',
+            'drugs',
+            'quantity',
+            ]
+        row = []
+
+        shops = set()
+        drugs = models.Drug.objects.filter(approved=True)
+
+        res = HttpResponse( content_type='text/csv')
+        res ['Content-Disposition'] = 'attachment; filename=' + 'data.csv'
+
+        writer = csv.writer(res)
+        writer.writerow(header)
+
+        rows = []
+
+        for drug in drugs:
+            if drug.shop in shops:
+                pass
+
+            shops.add(drug.shop)
+
+        for shop in shops:
+            row = []
+            row.append(shop.wego_id)
+            row.append(shop.kyc.client.name)
+            row.append(shop.kyc.client.business_name)
+            row.append(shop.kyc.client.email)
+            row.append(shop.kyc.client.phone)
+            row.append(shop.kyc.client.address)
+            row.append(shop.kyc.client.state)
+            row.append(shop.kyc.client.lga)
+            row.append(shop.kyc.client.ward)
+            row.append(shop.kyc.client.gender)
+            row.append(shop.kyc.client.age)
+            row.append(shop.kyc.client.date)
+
+            qstn = Questionaire.objects.get(client=shop.kyc.client)
+
+            row.append(qstn.have_account)
+            row.append(qstn.loan_access)
+            row.append(qstn.financial_support)
+            row.append(qstn.max_loan)
+            row.append(qstn.business_experience)
+            row.append(qstn.shop_experience)
+            row.append(qstn.is_business_owner)
+            row.append(qstn.duration)
+            row.append(qstn.delivery)
+            row.append(qstn.commute)
+            row.append(qstn.challenges)
+            row.append(qstn.credit)
+            row.append(qstn.debtors)
+            row.append(qstn.service)
+            row.append(qstn.qualification)
+            row.append(qstn.employees)
+            row.append(qstn.turnover)
+            row.append(qstn.sales)
+            row.append(qstn.cac)
+            row.append(qstn.council)
+            row.append(qstn.date)
+
+            row.append(shop.agent.username)
+            row.append(f"{shop.agent.first_name} {shop.agent.last_name}")
+
+            drugs = Drug.objects.filter(shop=shop)
+
+            for d in drugs:
+                dr = []
+                qt = []
+
+                dr.append(d.drug)
+                qt.append(str(d.quantity))
+
+                f_dr = "-".join(dr)
+                f_qt = "-".join(qt)
+
+                row.append(f_dr)
+                row.append(f_qt)
+
+
+            rows.append(row)
+
+        for r in rows:
+
+            writer.writerow(r)
+        
+        return res
+        
+
 
 @login_required
 def all(request):
@@ -225,6 +371,7 @@ def approved(request):
         return render(request, "dashboard/approved.html", {
             "approved": approved
         })
+
 
 @login_required
 def agents(request):

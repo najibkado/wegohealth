@@ -14,6 +14,9 @@ class Client(models.Model):
     address = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
     age = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    lga = models.CharField(max_length=255)
+    ward = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now=True)
 
 class Questionaire(models.Model):
@@ -52,6 +55,7 @@ class Kyc(models.Model):
 class Shop(models.Model):
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
     kyc = models.ForeignKey(Kyc, on_delete=models.CASCADE)
+    wego_id = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     addr = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now=True)

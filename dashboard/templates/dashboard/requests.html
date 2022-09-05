@@ -38,8 +38,8 @@
                                     <td>{{item.shop.kyc.client.name}}</td>
                                     <td>{{item.shop.name}}</td>
                                     <td>{{item.shop.kyc.client.address}}</td>
-                                    <td>Kano</td>
-                                    <td>Nassarawa</td>
+                                    <td>{{item.shop.kyc.client.state}}</td>
+                                    <td>{{item.shop.kyc.client.lga}}</td>
                                     <td><a href="{% url 'review_requests' item.shop.pk %}" class="btn-rounded"> Review</a></td>
                                     <!-- <td><label class="badge badge-primary">Pending</label></td> -->
                                   </tr>

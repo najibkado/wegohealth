@@ -1,3 +1,4 @@
+from audioop import add
 from sqlite3 import IntegrityError
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -48,6 +49,13 @@ def client_info(request):
         address = request.POST["address"]
         gender = request.POST["gender"]
         age = request.POST["age"]
+        state = request.POST["state"]
+        lga = request.POST["lga"]
+        ward = request.POST["ward"]
+
+        if name == "" or business_name == "" or email == "" or phone == "" or address == "" or gender == "" or age == "" or state == "" or lga == "" or ward == "":
+            messages.error(request, "Fields can't be empty!")
+            return HttpResponseRedirect(reverse("client"))
 
         try:
             client = models.Client(
@@ -57,12 +65,16 @@ def client_info(request):
                 phone = phone,
                 address = address,
                 gender = gender,
-                age = age
+                age = age,
+                state = state,
+                lga = lga,
+                ward = ward
             )
 
             client.save()
         except IntegrityError:
-            return HttpResponse("Unable to register client at the moment!")
+            messages.error(request, "Invalid form data!")
+            return HttpResponseRedirect(reverse("client"))
 
         return HttpResponseRedirect(reverse("questianaire", args=(client.pk,)))
 #Questionaire
@@ -96,6 +108,10 @@ def client_business(request, id):
         cac = request.POST["cac"]
         council = request.POST["council"]
         # "-".join(challenges)
+
+        if account == "" or loan == "" or support == "" or amount == "" or busines_experience == "" or shop_experience == "" or business_owner == "" or duration == "" or delivery == "" or commute == "" or challenges == "" or credit == "" or debtors == "" or service == "" or qualification == "" or employees == "" or turnover == "" or sales == "" or cac == "" or council == "":
+            messages.error(request, "Fields can't be empty!")
+            return HttpResponseRedirect(reverse("questianaire", args=(id, )))
 
         try:
             c = models.Client.objects.get(pk=id)
@@ -136,8 +152,8 @@ def client_business(request, id):
             new_questionaire.save()
 
         except IntegrityError:
-            return HttpResponse("Unable to finish data submission pls try again later")
-
+            messages.error(request, "Unable to finish data submission pls try again")
+            return HttpResponseRedirect(reverse("questianaire", args=(id, )))
 
         return HttpResponseRedirect(reverse("kyc", args=(new_questionaire.pk,)))
 
@@ -188,7 +204,7 @@ def client_kyc(request, id):
 
             kyc.save()
         except IntegrityError:
-            messages.error(request, "Unable to upload pictures, Try again!")
+            messages.error(request, "Unable to upload pictures, Try again")
             return HttpResponseRedirect(reverse("kyc", args=(id,)))
 
         return HttpResponseRedirect(reverse("drugs", args=(kyc.pk,)))
@@ -209,11 +225,16 @@ def drugs(request, id):
         # if name == "" or addr == "" or len(drug) == 0:
         #     return HttpResponse("Can't submit empty fields")
 
+        if len(drug) <= 0:
+            messages.error(request, "Please select drugs")
+            return HttpResponseRedirect(reverse("drugs", args=(id,)))
+
         kyc = models.Kyc.objects.get(pk=id)
 
         shop = models.Shop.objects.create(
             agent = request.user,
             kyc = kyc,
+            wego_id = f"WGH-SURV-{kyc.client.pk}",
             name = kyc.client.name,
             addr = kyc.client.address
         )

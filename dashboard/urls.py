@@ -16,6 +16,7 @@ urlpatterns = [
     path('user/del/<int:id>', views.del_agent, name="del_agent"),
     path('user/jobs/<int:id>', views.jobs, name="jobs"),
     path('administrators', views.administrators, name="administrators"),
-    path('administrators/new', views.new_admin, name="new_admin")
+    path('administrators/new', views.new_admin, name="new_admin"),
+    path('export', views.generate_csv, name="csv")
 ]
 

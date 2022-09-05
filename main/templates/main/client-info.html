@@ -12,7 +12,7 @@
 </head>
 <body class="h-full">
   
-
+  {% include 'main/messages/messages.html' %}
 <!--
   This example requires updating your template:
 
@@ -61,17 +61,35 @@
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-sm font-medium text-gray-700">Gender</label>
-                <select id="country" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Male</option>
-                  <option>Female</option>
+                <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+                <select id="state" name="state" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </select>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
+                <label for="lga" class="block text-sm font-medium text-gray-700">Local Government</label>
+                <select id="lga" name="lga" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="ward" class="block text-sm font-medium text-gray-700">Ward</label>
+                <input type="text" name="ward" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="state" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="state" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
                 <label for="region" class="block text-sm font-medium text-gray-700">Age</label>
                 <input type="text" name="age" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
+
 
             </div>
           </div>
@@ -97,6 +115,9 @@
           </div>
         </div>
     </div> -->
+
+
+    <script src="{% static '/client.js' %}"></script>
       
 </body>
 </html>

@@ -19,6 +19,8 @@
 </head>
 <body class="h-full">
 
+  {% include 'main/messages/messages.html' %}
+
   <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="">
       <div>
@@ -34,7 +36,7 @@
         {% csrf_token %}
         <fieldset>
         <h2 class="fs-title">Select top 20 drugs sold and their quantities in the last one month.</h2>
-        <select data-placeholder="Search Drug" multiple class="form-control chosen-select" name="test" style="width: auto;">
+        <select data-placeholder="Search Drug" multiple class="form-control chosen-select" name="test">
           <option value=""></option>
           <option value="Metronidazole">Metronidazole</option> 
           <option value="Tinidazole">Tinidazole</option> 
@@ -2049,6 +2051,7 @@
         <input id="form" type="submit" value="Next">
     </fieldset>
     </form>
+
 
   </div>
 </div>

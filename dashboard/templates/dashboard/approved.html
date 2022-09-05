@@ -36,8 +36,8 @@
                                     <td>{{item.shop.kyc.client.name}}</td>
                                     <td>{{item.shop.name}}</td>
                                     <td>{{item.shop.kyc.client.address}}</td>
-                                    <td>Kano</td>
-                                    <td>Nassarawa</td>
+                                    <td>{{item.shop.kyc.client.state}}</td>
+                                    <td>{{item.shop.kyc.client.lga}}</td>
                                     <td><label class="badge badge-success">Approved</label></td>
                                     <td><a href="{% url 'preview' item.shop.pk %}">Preview</a></td>
                                   </tr>
