@@ -290,7 +290,31 @@ def quantity(request, id):
             drug.save()
             indexes+=1
 
+        return HttpResponseRedirect(reverse("location", args=(id, )))
+
+@login_required
+def location(request, id):
+    if request.method == "GET":
+        return render(request, "main/location.html", {
+            "id": id
+        })
+
+    if request.method == "POST":
+        lon = request.POST["lon"]
+        lat = request.POST["lat"]
+        url = request.POST["url"]
+
+        shop = models.Shop.objects.get(pk=id)
+
+        shop.lon = lon
+        shop.lat = lat
+        shop.url = url
+
+        shop.save()
+
         return HttpResponseRedirect(reverse("success"))
+
+        
 @login_required
 def success(request):
     return render(request, "main/success.html")

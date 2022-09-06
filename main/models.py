@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_admin = models.BooleanField(default=False)
     phone = models.CharField(max_length=255)
+    reg_by = models.IntegerField()
 
 class Client(models.Model):
     name = models.CharField(max_length=255)
@@ -56,6 +57,9 @@ class Shop(models.Model):
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
     kyc = models.ForeignKey(Kyc, on_delete=models.CASCADE)
     wego_id = models.CharField(max_length=255)
+    lon = models.CharField(max_length=255)
+    lat = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     addr = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now=True)

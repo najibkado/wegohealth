@@ -53,6 +53,46 @@ def dashboard_index(request):
 
     if request.method == "GET":
 
+        if request.user.is_admin:
+            # surverys = len(models.Client.objects.all())
+            approved = models.Drug.objects.filter(approved=True)
+            requests = models.Drug.objects.filter(approved=False)
+            agents = len(User.objects.filter(is_admin=False))
+            admin = len(User.objects.filter(is_admin=True))
+
+            approved_shops = set()
+            requests_shops = set()
+
+            for req in approved:
+                if req.shop in approved_shops:
+                    pass
+                else:
+                    if req.shop.agent.reg_by == request.user.pk:
+                        approved_shops.add(req.shop)
+
+            for req in requests:
+                if req.shop in requests_shops:
+                    pass
+                else:
+                    if req.shop.agent.reg_by == request.user.pk:
+                        requests_shops.add(req.shop)
+
+            sample = []
+            labels = ["Kano","Jigawa", "Katsina", "Yobe", "Bauchi", "Gombe", "Adamawa", "Taraba", "Kaduna", "Zamfara"]
+
+            for label in labels:
+                c = models.Client.objects.filter(state=label)
+                sample.append(len(c))
+
+            return render(request, "dashboard/index.html", {
+                "surveys": len(requests_shops),
+                "approved": len(approved_shops),
+                "requests": len(requests_shops),
+                "agents": "null",
+                "admin": "null",
+                "sample": sample
+            })
+
         surverys = len(models.Client.objects.all())
         approved = models.Drug.objects.filter(approved=True)
         requests = models.Drug.objects.filter(approved=False)
@@ -108,8 +148,9 @@ def survey_requests(request):
             if req.shop in shops:
                 pass
             else:
-                shops.add(req.shop)
-                requests.append(req)
+                if req.shop.agent.reg_by == request.user.pk:
+                    shops.add(req.shop)
+                    requests.append(req)
 
         return render(request, "dashboard/requests.html", {
             "requests": requests
@@ -211,6 +252,9 @@ def generate_csv(request):
             'Ward',
             'Gender',
             'Age',
+            'Shop Latitude',
+            'Shop Longitude',
+            'Location URL',
             'Date Collected',
             'Do you have a bank account?',
             'Have you had access to loan for your business?',
@@ -270,6 +314,9 @@ def generate_csv(request):
             row.append(shop.kyc.client.ward)
             row.append(shop.kyc.client.gender)
             row.append(shop.kyc.client.age)
+            row.append(shop.kyc.client.lat)
+            row.append(shop.kyc.client.lon)
+            row.append(shop.kyc.client.url)
             row.append(shop.kyc.client.date)
 
             qstn = Questionaire.objects.get(client=shop.kyc.client)
@@ -475,7 +522,8 @@ def new_agent(request):
                 username=username,
                 email=email,
                 password=password,
-                phone=phone
+                phone=phone,
+                reg_by=request.user.pk
             )
 
             new_user.save()

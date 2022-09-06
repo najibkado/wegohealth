@@ -44,6 +44,7 @@
                             <h3 class="rate-percentage">{{requests}}</h3>
                             
                           </div>
+                          {% if request.user.is_superuser %}
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Agents</p>
                             <h3 class="rate-percentage">{{agents}}</h3>
@@ -54,11 +55,13 @@
                             <h3 class="rate-percentage">{{admin}}</h3>
                             
                           </div>
+                          {% endif %}
                         </div>
                       </div>
                     </div> 
                    
                     <div class="row">
+                      {% if request.user.is_superuser %}
                       <div class="col-lg-8 d-flex flex-column">
                         <div class="row flex-grow">
                           <div class="col-12 grid-margin stretch-card">
@@ -84,6 +87,7 @@
                         </div>
                      
                       </div>
+                      {% endif %}
                       <div class="col-lg-4 d-flex flex-column">
             
                         <div class="row flex-grow">

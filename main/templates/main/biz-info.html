@@ -37,32 +37,42 @@
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">
-                <label for="account" class="block text-xl2 font-medium text-gray-900">Do you have a bank account?</label>
-                <select id="account" name="account" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                <label for="cac" class="block text-xl2 font-medium text-gray-900"> Is your company registered with the Corporate Affairs Commission? </label>
+                <select id="cac" name="cac" autocomplete="cac" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="loan" class="block text-xl2 font-medium text-gray-900">Have you had access to loan for your business? </label>
-                <select id="loan" name="loan" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                <label for="council" class="block text-xl2 font-medium text-gray-900"> Is your business registered with the Pharmacists Council of Nigeria? </label>
+                <select id="council" name="council" autocomplete="council" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="support" class="block text-xl2 font-medium text-gray-900">Do you need financial support in form of loan for your business?</label>
-                <select id="support" name="support" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                <label for="qualification" class="block text-xl2 font-medium text-gray-900">What is your qualification? </label>
+                <select id="qualification" name="qualification" autocomplete="qualification" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                  <option value="Pharmacist">Pharmacist</option>
+                  <option value="Pharmacy technician">Pharmacy technician</option>
+                  <option value="Pharmacy technologist">Pharmacy technologist</option>
+                  <option value="Nurse">Nurse</option>
+                  <option value="CHEW">CHEW</option>
+                  <option value="CHO">CHO</option>
+                  <option value="Laboratory technician">Laboratory technician </option>
+                  <option value="Environmental hygiene">Environmental hygiene</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="amount" class="block text-xl2 font-medium text-gray-900">What is the maximum amount that you be able to collect as loan for your business?</label>
-                <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <label for="busines" class="block text-xl2 font-medium text-gray-900">Are you the business owner?</label>
+                <select id="busines" name="busines" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -137,61 +147,21 @@
                 </select>
               </div>
 
-              <div class="col-span-6 sm:col-span-3">
-                <label for="busines" class="block text-xl2 font-medium text-gray-900">Are you the business owner?</label>
-                <select id="busines" name="busines" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-
-              <div class="col-span-6 sm:col-span-4">
+              <div class="col-span-6 sm:col-span-6">
                 <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">Expected time of delivery when you place order for drugs on our app?</label>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How many employees do you have currently?</label>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
-                      <input id="duration1" value="1hrs - 6hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
-                      <label for="duration1"  class="ml-3 block text-sm font-medium text-gray-700"> 1hrs - 6hrs </label>
+                      <input id="employees1" value="1 - 5" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
+                      <label for="employees1" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5 </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="duration2" value="6hrs - 12hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="duration2" class="ml-3 block text-sm font-medium text-gray-700">6hrs - 12hrs </label>
+                      <input id="employees2" value="6 - 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="employees2" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 15 </label>
                     </div>
                     <div class="flex items-center">
-                      <input id="duration3" value="1 Day - 2 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="duration3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Day - 2 Days </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="duration4" value="3 Days - 7 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="duration4" class="ml-3 block text-sm font-medium text-gray-700">3 Days - 7 Days </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="col-span-6 sm:col-span-4">
-                <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much would you be able to pay for delivery after placing order for drugs on our app?</label>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="delivery1" value="500 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
-                      <label for="delivery1" class="ml-3 block text-sm font-medium text-gray-700"> 500 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="delivery2" value="1,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="delivery2" class="ml-3 block text-sm font-medium text-gray-700"> 1,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="delivery3" value="1,500 Naira " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="delivery3" class="ml-3 block text-sm font-medium text-gray-700"> 1,500 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="delivery4" value="2,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="delivery4" class="ml-3 block text-sm font-medium text-gray-700"> 2,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="delivery5" value="5,000 Naira and Above " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="delivery5" class="ml-3 block text-sm font-medium text-gray-700"> 5,000 Naira and Above </label>
+                      <input id="employees3" value="More than 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="employees3" class="ml-3 block text-sm font-medium text-gray-700"> More than 15 </label>
                     </div>
                   </div>
                 </fieldset>
@@ -216,6 +186,140 @@
                     <div class="flex items-center">
                       <input id="commute4" value=" 20 - 30" name="commute" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                       <label for="commute4" class="ml-3 block text-sm font-medium text-gray-700"> 20 - 30 </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What are your typical monthly sales?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="sales1" value="Below 500,000 Naira " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
+                      <label for="sales1" class="ml-3 block text-sm font-medium text-gray-700"> Below 500,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="sales2" value="N500,000 - 1 Million " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales2" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - 1 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="sales3" value="1 Million to 1.7 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Million to 1.7 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="sales4" value="1.7 Million to 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales4" class="ml-3 block text-sm font-medium text-gray-700"> 1.7 Million to 3 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="sales5" value="Above 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="sales5" class="ml-3 block text-sm font-medium text-gray-700"> Above 3 Million </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">What is your turnover in the last 12 months?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="turnover1" value="Less than N500,000 " name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
+                      <label for="turnover1" class="ml-3 block text-sm font-medium text-gray-700"> Less than N500,000 </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="turnover2" value="N500,000 - N1 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover2" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - N1 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="turnover3" value="N1 Million to N3 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover3" class="ml-3 block text-sm font-medium text-gray-700"> N1 Million to N3 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="turnover4" value="N3 Million to N5 Million " name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover4" class="ml-3 block text-sm font-medium text-gray-700"> N3 Million to N5 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="turnover5" value="NN5 Million to N10 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover5" class="ml-3 block text-sm font-medium text-gray-700"> N5 Million to N10 Million </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="turnover6" value="Above N10 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="turnover6" class="ml-3 block text-sm font-medium text-gray-700"> Above N10 Million </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="support" class="block text-xl2 font-medium text-gray-900">Do you need financial support in form of loan for your business?</label>
+                <select id="support" name="support" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="loan" class="block text-xl2 font-medium text-gray-900">Have you had access to loan for your business? </label>
+                <select id="loan" name="loan" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="amount" class="block text-xl2 font-medium text-gray-900">What is the maximum amount that you be able to collect as loan for your business?</label>
+                <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much credit worth of drugs do you give out to your customers in a monthly?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="credit1" value="100 Naira - 20,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit1" class="ml-3 block text-sm font-medium text-gray-700"> 100 Naira - 20,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="credit2" value="20,000 Naira - 50,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit2" class="ml-3 block text-sm font-medium text-gray-700"> 20,000 Naira - 50,000 Naira</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="credit3" value="50,000 Naira - 100,000 Naira " name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit3" class="ml-3 block text-sm font-medium text-gray-700"> 50,000 Naira - 100,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="credit4" value="100,000 Naira - 1,000,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit4" class="ml-3 block text-sm font-medium text-gray-700"> 100,000 Naira - 1,000,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="credit5" value="1,000,000 Naira - Above" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="credit5" class="ml-3 block text-sm font-medium text-gray-700"> 1,000,000 Naira - Above</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">Expected time of delivery when you place order for drugs on our app?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="duration1" value="1hrs - 6hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
+                      <label for="duration1"  class="ml-3 block text-sm font-medium text-gray-700"> 1hrs - 6hrs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="duration2" value="6hrs - 12hrs" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration2" class="ml-3 block text-sm font-medium text-gray-700">6hrs - 12hrs </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="duration3" value="1 Day - 2 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Day - 2 Days </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="duration4" value="3 Days - 7 Days" name="duration" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="duration4" class="ml-3 block text-sm font-medium text-gray-700">3 Days - 7 Days </label>
                     </div>
                   </div>
                 </fieldset>
@@ -268,42 +372,7 @@
                   </div>
                 </fieldset>
               </div>
-              
-              <div class="col-span-6 sm:col-span-4">
-                <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much credit worth of drugs do you give out to your customers in a monthly?</label>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="credit1" value="100 Naira - 20,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="credit1" class="ml-3 block text-sm font-medium text-gray-700"> 100 Naira - 20,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="credit2" value="20,000 Naira - 50,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="credit2" class="ml-3 block text-sm font-medium text-gray-700"> 20,000 Naira - 50,000 Naira</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="credit3" value="50,000 Naira - 100,000 Naira " name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="credit3" class="ml-3 block text-sm font-medium text-gray-700"> 50,000 Naira - 100,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="credit4" value="100,000 Naira - 1,000,000 Naira" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="credit4" class="ml-3 block text-sm font-medium text-gray-700"> 100,000 Naira - 1,000,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="credit5" value="1,000,000 Naira - Above" name="credit" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="credit5" class="ml-3 block text-sm font-medium text-gray-700"> 1,000,000 Naira - Above</label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
 
-              <div class="col-span-6 sm:col-span-3">
-                <label for="debtors" class="block text-xl2 font-medium text-gray-900">Do debtors slow down your business turn over? </label>
-                <select id="debtors" name="debtors" autocomplete="debtors" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <fieldset>
@@ -346,118 +415,77 @@
               </div>
 
 
+
+
+           
               <div class="col-span-6 sm:col-span-3">
-                <label for="qualification" class="block text-xl2 font-medium text-gray-900">What is your qualification? </label>
-                <select id="qualification" name="qualification" autocomplete="qualification" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                  <option value="Pharmacist">Pharmacist</option>
-                  <option value="Pharmacy technician">Pharmacy technician</option>
-                  <option value="Pharmacy technologist">Pharmacy technologist</option>
-                  <option value="Nurse">Nurse</option>
-                  <option value="CHEW">CHEW</option>
-                  <option value="CHO">CHO</option>
-                  <option value="Laboratory technician">Laboratory technician </option>
-                  <option value="Environmental hygiene">Environmental hygiene</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div class="col-span-6 sm:col-span-6">
-                <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">How many employees do you have currently?</label>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="employees1" value="1 - 5" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
-                      <label for="employees1" class="ml-3 block text-sm font-medium text-gray-700"> 1 - 5 </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="employees2" value="6 - 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="employees2" class="ml-3 block text-sm font-medium text-gray-700"> 6 - 15 </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="employees3" value="More than 15" name="employees" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="employees3" class="ml-3 block text-sm font-medium text-gray-700"> More than 15 </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="col-span-6 sm:col-span-6">
-                <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">What is your turnover in the last 12 months?</label>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="turnover1" value="Less than N500,000 " name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
-                      <label for="turnover1" class="ml-3 block text-sm font-medium text-gray-700"> Less than N500,000 </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="turnover2" value="N500,000 - N1 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="turnover2" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - N1 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="turnover3" value="N1 Million to N3 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="turnover3" class="ml-3 block text-sm font-medium text-gray-700"> N1 Million to N3 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="turnover4" value="N3 Million to N5 Million " name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="turnover4" class="ml-3 block text-sm font-medium text-gray-700"> N3 Million to N5 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="turnover5" value="NN5 Million to N10 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="turnover5" class="ml-3 block text-sm font-medium text-gray-700"> N5 Million to N10 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="turnover6" value="Above N10 Million" name="turnover" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="turnover6" class="ml-3 block text-sm font-medium text-gray-700"> Above N10 Million </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="col-span-6 sm:col-span-6">
-                <fieldset>
-                  <label for="country" class="block text-xl2 font-medium text-gray-900">What are your typical monthly sales?</label>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input id="sales1" value="Below 500,000 Naira " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
-                      <label for="sales1" class="ml-3 block text-sm font-medium text-gray-700"> Below 500,000 Naira </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="sales2" value="N500,000 - 1 Million " name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="sales2" class="ml-3 block text-sm font-medium text-gray-700"> N500,000 - 1 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="sales3" value="1 Million to 1.7 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="sales3" class="ml-3 block text-sm font-medium text-gray-700"> 1 Million to 1.7 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="sales4" value="1.7 Million to 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="sales4" class="ml-3 block text-sm font-medium text-gray-700"> 1.7 Million to 3 Million </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input id="sales5" value="Above 3 Million" name="sales" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="sales5" class="ml-3 block text-sm font-medium text-gray-700"> Above 3 Million </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="cac" class="block text-xl2 font-medium text-gray-900"> Is your company registered with the Corporate Affairs Commission? </label>
-                <select id="cac" name="cac" autocomplete="cac" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                <label for="account" class="block text-xl2 font-medium text-gray-900">Do you have a bank account?</label>
+                <select id="account" name="account" autocomplete="busines" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
+
+            
+             
+
+       
+
+
+            
+
+
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset>
+                  <label for="country" class="block text-xl2 font-medium text-gray-900">How much would you be able to pay for delivery after placing order for drugs on our app?</label>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="delivery1" value="500 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" required>
+                      <label for="delivery1" class="ml-3 block text-sm font-medium text-gray-700"> 500 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="delivery2" value="1,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery2" class="ml-3 block text-sm font-medium text-gray-700"> 1,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="delivery3" value="1,500 Naira " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery3" class="ml-3 block text-sm font-medium text-gray-700"> 1,500 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="delivery4" value="2,000 Naira" name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery4" class="ml-3 block text-sm font-medium text-gray-700"> 2,000 Naira </label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="delivery5" value="5,000 Naira and Above " name="delivery" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                      <label for="delivery5" class="ml-3 block text-sm font-medium text-gray-700"> 5,000 Naira and Above </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+           
+
+            
+              
+            
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="debtors" class="block text-xl2 font-medium text-gray-900">Do debtors slow down your business turn over? </label>
+                <select id="debtors" name="debtors" autocomplete="debtors" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+
+
+            
+
+
+           
+
+
               <br>
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="council" class="block text-xl2 font-medium text-gray-900"> Is your business registered with the Pharmacists Council of Nigeria? </label>
-                <select id="council" name="council" autocomplete="council" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
 
 
 

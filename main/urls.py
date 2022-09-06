@@ -17,5 +17,6 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('coming', views.coiming, name="coming"),
     path('solutions', views.solutions, name="solutions"),
-    path('logout', views.logout_view, name="logout")
+    path('logout', views.logout_view, name="logout"),
+    path('location/<int:id>', views.location, name="location")
 ]
