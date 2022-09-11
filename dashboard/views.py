@@ -566,7 +566,8 @@ def new_admin(request):
                 email=email,
                 password=password,
                 is_admin=True,
-                phone=phone
+                phone=phone,
+                reg_by=request.user.pk
             )
 
             new_user.save()
