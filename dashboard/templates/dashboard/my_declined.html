@@ -1,0 +1,71 @@
+{% load static %}
+{% include 'dashboard/layout.html' %}
+
+{% block body %}
+           <!-- partial -->
+           <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+
+                {% include 'dashboard/messages/messages.html' %}
+
+                
+                <div class="col-sm-12">
+                  <div class="home-tab">
+                    <!-- TODO -->
+                    <div class="col-lg-10 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">My Survey Requests</h4>
+                            <p class="card-description">
+                              Unapproved  <code>requests</code> waiting for admin approval
+                            </p>
+                            <div class="table-responsive">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th>Shop Owner</th>
+                                    <th>Shop Name</th>
+                                    <th>Shop Address</th>
+                                    <th>State</th>
+                                    <th>Local govt</th>
+                                    <!-- <th>Action</th> -->
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in requests %}
+                                  <tr>
+                                    <td>{{item.shop.kyc.client.name}}</td>
+                                    <td>{{item.shop.name}}</td>
+                                    <td>{{item.shop.kyc.client.address}}</td>
+                                    <td>{{item.shop.kyc.client.state}}</td>
+                                    <td>{{item.shop.kyc.client.lga}}</td>
+                                    <!-- <td><a href="{% url 'review_requests' item.shop.pk %}" class="btn-rounded"> Review</a></td> -->
+                                    <!-- <td><label class="badge badge-primary">Pending</label></td> -->
+                                  </tr>
+                                    {% endfor %}  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Wego Healthcare Copyright © 2022. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+{% endblock %}

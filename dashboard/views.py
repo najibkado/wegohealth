@@ -35,7 +35,7 @@ def login_view(request):
             messages.error(request, "Invalid user credentials")
             return HttpResponseRedirect(reverse("dashboard_login"))
 
-        if user.is_superuser or user.is_admin:
+        if user:
             login(request, user=user)
             return HttpResponseRedirect(reverse("dashboard_index"))
 
@@ -45,11 +45,11 @@ def login_view(request):
 @login_required
 def dashboard_index(request):
 
-    if request.user.is_superuser or request.user.is_admin:
-        pass
-    else:
-        messages.error(request, "You have no access to this portal!")
-        return HttpResponseRedirect(reverse("dashboard_login"))
+    # if request.user.is_superuser or request.user.is_admin:
+    #     pass
+    # else:
+    #     messages.error(request, "You have no access to this portal!")
+    #     return HttpResponseRedirect(reverse("dashboard_login"))
 
     if request.method == "GET":
 
@@ -154,6 +154,99 @@ def survey_requests(request):
 
         return render(request, "dashboard/requests.html", {
             "requests": requests
+        })
+
+@login_required
+def my_requests(request):
+    # if request.user.is_superuser or request.user.is_admin:
+    #     pass
+    # else:
+    #     messages.error(request, "You have no access to this portal!")
+    #     return HttpResponseRedirect(reverse("dashboard_login"))
+   
+    if request.method == "GET":
+        
+        shops = set()
+        requests = []
+        unrequests = models.Drug.objects.filter(approved=False, declined=False)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                requests.append(req)
+
+        fin = []
+
+        for req in requests:
+            if req.shop.agent == request.user:
+                fin.append(req)
+
+        return render(request, "dashboard/my_requests.html", {
+            "requests": fin
+        })
+
+@login_required
+def my_approved(request):
+    # if request.user.is_superuser or request.user.is_admin:
+    #     pass
+    # else:
+    #     messages.error(request, "You have no access to this portal!")
+    #     return HttpResponseRedirect(reverse("dashboard_login"))
+   
+    if request.method == "GET":
+        
+        shops = set()
+        requests = []
+        unrequests = models.Drug.objects.filter(approved=True, declined=False)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                requests.append(req)
+
+        fin = []
+
+        for req in requests:
+            if req.shop.agent == request.user:
+                fin.append(req)
+
+        return render(request, "dashboard/my_approved.html", {
+            "requests": fin
+        })
+
+@login_required
+def my_declined(request):
+    # if request.user.is_superuser or request.user.is_admin:
+    #     pass
+    # else:
+    #     messages.error(request, "You have no access to this portal!")
+    #     return HttpResponseRedirect(reverse("dashboard_login"))
+   
+    if request.method == "GET":
+        
+        shops = set()
+        requests = []
+        unrequests = models.Drug.objects.filter(approved=False, declined=True)
+
+        for req in unrequests:
+            if req.shop in shops:
+                pass
+            else:
+                shops.add(req.shop)
+                requests.append(req)
+
+        fin = []
+
+        for req in requests:
+            if req.shop.agent == request.user:
+                fin.append(req)
+
+        return render(request, "dashboard/my_declined.html", {
+            "requests": fin
         })
 
 @login_required
