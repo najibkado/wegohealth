@@ -29,7 +29,7 @@
                                     <th>Shop Address</th>
                                     <th>State</th>
                                     <th>Local govt</th>
-                                    <!-- <th>Action</th> -->
+                                    <th>Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -40,7 +40,7 @@
                                     <td>{{item.shop.kyc.client.address}}</td>
                                     <td>{{item.shop.kyc.client.state}}</td>
                                     <td>{{item.shop.kyc.client.lga}}</td>
-                                    <!-- <td><a href="{% url 'review_requests' item.shop.pk %}" class="btn-rounded"> Review</a></td> -->
+                                    <td><a href="{% url 'update_declined' item.shop.pk %}" class="btn-rounded"> Review and Update </a></td>
                                     <!-- <td><label class="badge badge-primary">Pending</label></td> -->
                                   </tr>
                                     {% endfor %}  

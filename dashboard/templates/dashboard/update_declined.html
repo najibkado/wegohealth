@@ -1,0 +1,308 @@
+{% load static %}
+{% include 'dashboard/layout.html' %}
+
+{% block body %}
+           <!-- partial -->
+        <div class="main-panel">
+            <form action="#" method="#"></form>
+            <div class="content-wrapper">
+            <div class="row">
+
+                {% include 'dashboard/messages/messages.html' %}
+                
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Personal Information</h4>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Customer Name</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Business Name</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.business_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Email</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.email}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Phone Number</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.phone}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Address</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.address}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">State</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.state}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Local Government</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.lga}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Ward</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.ward}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Gender</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.gender}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Age</label>
+                            <input type="text" name="first-name" class="form-control" id="exampleInputUsername1" value="{{personal.age}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Date Collected</label>
+                            <p class="card-description">{{personal.date}}</p>
+                        </div>
+                        <!-- <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Remember me
+                            </label>
+                        </div> -->
+                        <!-- <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        </form> -->
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Drugs Information</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>Drug</th>
+                                  <th>Quantity</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  {% for drug in drugs %}
+                                <tr>
+                                  <td>{{drug.drug}}</td>
+                                  <td>{{drug.quantity}}</td>
+                                </tr>
+                                  {% endfor %}  
+                              </tbody>
+                            </table>
+                          </div>
+                        <!-- <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Remember me
+                            </label>
+                        </div> -->
+                        <!-- <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        </form> -->
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Research Information</h4>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Do you have a bank account?</label>
+                            <p class="card-description">{{survey.have_account}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Have you had access to loan for your business?</label>
+                            <p class="card-description">{{survey.loan_access}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Do you need financial support in form of loan for your business?</label>
+                            <p class="card-description">{{survey.financial_support}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">What is the maximum amount that you be able to collect as loan for your business?</label>
+                            <p class="card-description">{{survey.max_loan}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Years of experience in  business?</label>
+                            <p class="card-description">{{survey.business_experience}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Years in present shop?</label>
+                            <p class="card-description">{{survey.shop_experience}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Are you the business owner?</label>
+                            <p class="card-description">{{survey.is_business_owner}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Expected time of delivery when you place order for drugs on our app?</label>
+                            <p class="card-description">{{survey.duration}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">How much would you be able to pay for delivery after placing order for drugs on our app?</label>
+                            <p class="card-description">{{survey.delivery}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">How often do you visit the market in a month to buy drugs for your business?</label>
+                            <p class="card-description">{{survey.commute}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">What are your major challenges in this business?</label>
+                            <p class="card-description">{{survey.challenges}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">How much credit worth of drugs do you give out to your customers in a monthly?</label>
+                            <p class="card-description">{{survey.credit}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Do debtors slow down your business turn over?</label>
+                            <p class="card-description">{{survey.debtors}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">What Services are you interested in from our app?</label>
+                            <p class="card-description">{{survey.service}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">What is your qualification?</label>
+                            <p class="card-description">{{survey.qualification}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">How many employees do you have currently?</label>
+                            <p class="card-description">{{survey.employees}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">What is your turnover in the last 12 months?</label>
+                            <p class="card-description">{{survey.turnover}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">What are your typical monthly sales?</label>
+                            <p class="card-description">{{survey.sales}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Is your company registered with the Corporate Affairs Commission?</label>
+                            <p class="card-description">{{survey.cac}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Is your business registered with the Pharmacists Council of Nigeria?</label>
+                            <p class="card-description">{{survey.council}}</p>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Date Collected</label>
+                            <p class="card-description">{{survey.date}}</p>
+                        </div>
+                        <!-- <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Remember me
+                            </label>
+                        </div> -->
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Customer Pictures</h4>
+                        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                            <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                              {{kyc.passport_name}} <br>
+                              {% if kyc.client_Passport_Img %}
+                              <img src="{{kyc.client_Passport_Img.url}}" alt="{{kyc.passport_name}}" class="h-full w-full object-cover object-center">
+                              {% endif %}
+                            </div>
+                            <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                              {{kyc.outter_name}} <br>
+                              {% if kyc.client_Outter_Img %}
+                              <img src="{{kyc.client_Outter_Img.url}}" alt="{{kyc.client_Inner_Img}}" class="h-full w-full object-cover object-center">
+                              {% endif %}
+                            </div>
+                            <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">     
+                              {{kyc.inner_name}} <br>
+                              {% if kyc.client_Inner_Img %}
+                              <img src="{{kyc.client_Inner_Img.url}}" alt="{{kyc.inner_name}}" class="h-full w-full object-cover object-center">
+                              {% endif %}
+                            </div>
+                          </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Agent Information</h4>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Collected By</label>
+                            <p class="card-description">{{shop.agent.username}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Agent Name</label>
+                            <p class="card-description">{{shop.agent.first_name}} {{shop.agent.last_name}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Location Information</h4>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Latitude and Longitude</label>
+                            <p class="card-description">{{shop.lat}}, {{shop.lat}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Map Link</label> <br>
+                            <a href="{{shop.url}}" target="_blank" class="card-description">View on Maps</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h4 class="card-title">Agent Information</h4> -->
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- {% url 'review_requests' shop.pk %} -->
+                                        <form action="#" method="#">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn bg-blue-600 btn-primary me-2">Send Survey for Approval </button>
+                                        </form>
+    
+                                    </div>
+
+                            </div>
+                                
+    
+                        </div>
+                    </div>
+
+            
+                 </div>   
+
+
+
+                
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Wego Healthcare Copyright © 2022. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+{% endblock %}

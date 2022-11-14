@@ -9,6 +9,7 @@ urlpatterns = [
     path('myrequests', views.my_requests, name="my_requests"),
     path('myapproved', views.my_approved, name="my_approved"),
     path('mydeclined', views.my_declined, name="my_declined"),
+    path('mydeclined/update/<int:id>', views.update_declined, name="update_declined"),
     path('requests/review/<int:id>', views.review_requests, name="review_requests"),
     path('requests/decline/<int:id>', views.decline_requests, name="decline_requests"),
     path('approved', views.approved, name="dashboard_approved"),

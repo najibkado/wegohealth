@@ -249,6 +249,41 @@ def my_declined(request):
             "requests": fin
         })
 
+
+@login_required
+def update_declined(request, id):
+    # if request.user.is_superuser or request.user.is_admin:
+    #     pass
+    # else:
+    #     messages.error(request, "You have no access to this portal!")
+    #     return HttpResponseRedirect(reverse("dashboard_login"))
+
+    if request.method == "GET":
+        shop = models.Shop.objects.get(pk=id)
+        personal_info = shop.kyc.client
+        survey = models.Questionaire.objects.get(client=personal_info)
+        drugs = models.Drug.objects.filter(shop=shop)
+        kyc = models.Kyc.objects.filter(client=personal_info).last()
+
+        return render(request, "dashboard/update_declined.html", {
+            "personal": personal_info,
+            "survey": survey,
+            "drugs": drugs,
+            "kyc": kyc,
+            "shop": shop
+        })
+
+    if request.method == "POST":
+        shop = models.Shop.objects.get(pk=id)
+        drugs = models.Drug.objects.filter(shop=shop)
+
+        for drug in drugs:
+            drug.approved = True
+            drug.save()
+
+        messages.success(request, "Approved Successfuly")
+        return HttpResponseRedirect(reverse("survey_requests"))
+
 @login_required
 def review_requests(request, id):
     if request.user.is_superuser or request.user.is_admin:
