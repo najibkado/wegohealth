@@ -442,8 +442,8 @@ def generate_csv(request):
             row.append(shop.kyc.client.ward)
             row.append(shop.kyc.client.gender)
             row.append(shop.kyc.client.age)
-            row.append(shop.kyc.client.lat)
-            row.append(shop.kyc.client.lon)
+            row.append(shop.kyc.client.lat if shop.kyc.client.lat else "Unable to get location")
+            row.append(shop.kyc.client.lon if shop.kyc.client.lon else "Unable to get location")
             row.append(shop.kyc.client.url)
             row.append(shop.kyc.client.date)
 
